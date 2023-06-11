@@ -20,6 +20,10 @@ public class StudentItemProcessor implements ItemProcessor<Student, StudentDto> 
         studentDto.setEmail(item.getEmail());
         studentDto.setPrenom(item.getPrenom());
 
+        int preferredNumber = Integer.parseInt(item.getEmail().replaceAll("\\D", ""));
+
+        studentDto.setPreferredNumber(preferredNumber);
+
         return studentDto;
     }
 }
