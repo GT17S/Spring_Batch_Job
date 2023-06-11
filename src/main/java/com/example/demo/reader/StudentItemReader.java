@@ -1,6 +1,8 @@
 package com.example.demo.reader;
 
 import com.example.demo.db.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineMapper;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
@@ -10,9 +12,11 @@ import org.springframework.core.io.ClassPathResource;
 
 public class StudentItemReader extends FlatFileItemReader<Student> {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(StudentItemReader.class);
 
     public StudentItemReader() {
 
+        LOGGER.info("Reading the CSV file: ");
         this.setResource(new ClassPathResource("data.csv"));
         this.setLineMapper(getLineMapper());
         this.setLinesToSkip(1);
