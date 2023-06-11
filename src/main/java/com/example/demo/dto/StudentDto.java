@@ -9,8 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class StudentDto {
 
+    public static final String COLUMNS = "nom, prenom, age, email, preferredNumber";
+
     private String nom;
     private String prenom;
     private int age;
     private String email;
+    private int preferredNumber;
 }
+
