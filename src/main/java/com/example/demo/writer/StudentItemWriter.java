@@ -17,7 +17,6 @@ public class StudentItemWriter extends FlatFileItemWriter<StudentDto> {
 
         LOGGER.info("Writing in the output file: ");
         this.setResource(new FileSystemResource("output.csv"));
-        this.setAppendAllowed(true);
         this.setLineAggregator(new DelimitedLineAggregator<StudentDto>() {
             {
                 setDelimiter(",");
